@@ -96,11 +96,11 @@ int* shellSort(int* arr, int numElements, int D)
 //main function
 int main()
 {
-    int n;
+    int n; // 10
     cin >> n; // read the number of elements
     cout << "Number of elements: " << n << endl;
 
-    int s, l, u, D;
+    int s, l, u, D; // 11011, 1000, 1500, 10
 
     cin >> s >> l >> u >> D; // read the seed, lower range, upper range and the number of comparisons
     cout << "Number of comparisons allowed: " << D << endl;
@@ -113,18 +113,35 @@ int main()
 
     cout << "Randomly generated elements: ~~~~~~~~~~" << endl;
     // display the array A
-
+    // unordered_set <int> randomIntSet;
+    int* arr = new int(n);
+    srand(s); // initialize the random number generator with seed s
+    int range = u - l;
+    for (int i = 0; i < n; i++) {
+        int random = l + (rand() % range);
+        arr[i] = random;
+        cout << random << " ";
+    }
+    cout << endl;
     // use one of the sorting algorithms with the third argument for D as n*n (for bubble sort) and store the fully sorted result 
 
     cout << "Completely sorted elements: ~~~~~~~~~~" << endl;
     // display the completely sorted array 
-
+    int* sorted = shellSort(arr, n, n*n);
+    for (int i = 0; i < n; i++) {
+        cout << sorted[i] << " ";
+    }
+    cout << endl;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     // sort the array A with only given D comparions using the Bubble Sort algorithm and store the output array as bubResult in an array
     // calculate and display the two quality measures for bubResult
     cout << "Bubble Sort Result: ~~~~~~~~~~" << endl;
-
+    int* bubResult = bubbleSort(arr, n, D);
+    for (int i = 0; i < n; i++) {
+        cout << bubResult[i] << " ";
+    }
+    cout << endl;
     // display bubResult
 
     // find both the quality metrics for bubResult
@@ -134,7 +151,11 @@ int main()
     // sort the array A with only given D comparions using the Shell Sort algorithm and store the output array as shellResult in an array
     // calculate and display the two quality measures for shellResult
     cout << "Shell Sort Result: ~~~~~~~~~~" << endl;
-
+    int* shellResult = shellSort(arr, n, D);
+    for (int i = 0; i < n; i++) {
+        cout << shellResult[i] << " ";
+    }
+    cout << endl;
     // display shellResult
 
     // find both the quality metrics for shellResult
