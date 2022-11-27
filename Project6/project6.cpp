@@ -163,16 +163,21 @@ int main()
 
     int* bubDistance = new int(n);
     for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (bubResult[j] == bubResult[i]) {
+        for (int j = 0; j < n; j++) {
+            if (sorted[j] == bubResult[i]) {
                 bubDistance[i] = abs(i - j);
             }
         }
     }
-    for (int i = 0; i < n; i++) {
-        cout << bubDistance[i] << " ";
-    }
 
+    int max = 0;
+    for (int i = 0; i < n; i++) {
+        if (bubDistance[i] > max) {
+            max = bubDistance[i];
+        }
+    }
+    
+    cout << "Chebyshev distance in bubResult: " << max << endl;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     // sort the array A with only given D comparions using the Shell Sort algorithm and store the output array as shellResult in an array
@@ -197,6 +202,24 @@ int main()
     }
     cout << "Number of inversions in shellResult: " << shellInversion;
     cout << endl;
+
+    int* shellDistance = new int(n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (sorted[j] == shellResult[i]) {
+                shellDistance[i] = abs(i - j);
+            }
+        }
+    }
+
+    max = 0;
+    for (int i = 0; i < n; i++) {
+        if (shellDistance[i] > max) {
+            max = shellDistance[i];
+        }
+    }
+
+    cout << "Chebyshev distance in shellResult: " << max << endl;
 
     return 0;
 }
