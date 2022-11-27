@@ -113,13 +113,12 @@ int main()
 
     cout << "Randomly generated elements: ~~~~~~~~~~" << endl;
     // display the array A
-    // unordered_set <int> randomIntSet;
-    int* arr = new int(n);
+    int* A = new int(n);
     srand(s); // initialize the random number generator with seed s
     int range = u - l;
     for (int i = 0; i < n; i++) {
         int random = l + (rand() % range);
-        arr[i] = random;
+        A[i] = random;
         cout << random << " ";
     }
     cout << endl;
@@ -127,7 +126,7 @@ int main()
 
     cout << "Completely sorted elements: ~~~~~~~~~~" << endl;
     // display the completely sorted array 
-    int* sorted = bubbleSort(arr, n, n*n);
+    int* sorted = bubbleSort(A, n, n*n);
     for (int i = 0; i < n; i++) {
         cout << sorted[i] << " ";
     }
@@ -137,12 +136,13 @@ int main()
     // sort the array A with only given D comparions using the Bubble Sort algorithm and store the output array as bubResult in an array
     // calculate and display the two quality measures for bubResult
     cout << "Bubble Sort Result: ~~~~~~~~~~" << endl;
-    int* bubResult = bubbleSort(arr, n, D);
+    int* bubResult = bubbleSort(A, n, D);
+    
+    // display bubResult
     for (int i = 0; i < n; i++) {
         cout << bubResult[i] << " ";
     }
     cout << endl;
-    // display bubResult
 
     // find both the quality metrics for bubResult
 
@@ -151,12 +151,13 @@ int main()
     // sort the array A with only given D comparions using the Shell Sort algorithm and store the output array as shellResult in an array
     // calculate and display the two quality measures for shellResult
     cout << "Shell Sort Result: ~~~~~~~~~~" << endl;
-    int* shellResult = shellSort(arr, n, D);
+    int* shellResult = shellSort(A, n, D);
+    
+    // display shellResult
     for (int i = 0; i < n; i++) {
         cout << shellResult[i] << " ";
     }
     cout << endl;
-    // display shellResult
 
     // find both the quality metrics for shellResult
 
