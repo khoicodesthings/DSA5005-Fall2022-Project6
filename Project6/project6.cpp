@@ -150,6 +150,8 @@ int main()
     cout << endl;
     
     // find both the quality metrics for bubResult
+
+    // find the number of inversions
     int bubInversion = 0;
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
@@ -161,6 +163,7 @@ int main()
     cout << "Number of inversions in bubResult: " << bubInversion;
     cout << endl;
 
+    // find the Chebyshev distance
     int* bubDistance = new int(n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -170,6 +173,7 @@ int main()
         }
     }
 
+    // find the max from the distance array
     int max = 0;
     for (int i = 0; i < n; i++) {
         if (bubDistance[i] > max) {
@@ -192,6 +196,7 @@ int main()
     cout << endl;
 
     // find both the quality metrics for shellResult
+    // find the number of inversions
     int shellInversion = 0;
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
@@ -203,6 +208,7 @@ int main()
     cout << "Number of inversions in shellResult: " << shellInversion;
     cout << endl;
 
+    // find the Chebyshev's distance
     int* shellDistance = new int(n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -212,6 +218,7 @@ int main()
         }
     }
 
+    // find the max element from the distance array
     max = 0;
     for (int i = 0; i < n; i++) {
         if (shellDistance[i] > max) {
