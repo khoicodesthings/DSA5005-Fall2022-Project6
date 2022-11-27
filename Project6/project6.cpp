@@ -174,7 +174,7 @@ int main()
     }
 
     // find the max from the distance array
-    int max = 0;
+    int max = INT_MIN;
     for (int i = 0; i < n; i++) {
         if (bubDistance[i] > max) {
             max = bubDistance[i];
@@ -219,7 +219,7 @@ int main()
     }
 
     // find the max element from the distance array
-    max = 0;
+    max = INT_MIN;
     for (int i = 0; i < n; i++) {
         if (shellDistance[i] > max) {
             max = shellDistance[i];
