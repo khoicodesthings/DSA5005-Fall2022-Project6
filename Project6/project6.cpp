@@ -161,6 +161,18 @@ int main()
     cout << "Number of inversions in bubResult: " << bubInversion;
     cout << endl;
 
+    int* bubDistance = new int(n);
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (bubResult[j] == bubResult[i]) {
+                bubDistance[i] = abs(i - j);
+            }
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        cout << bubDistance[i] << " ";
+    }
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     // sort the array A with only given D comparions using the Shell Sort algorithm and store the output array as shellResult in an array
