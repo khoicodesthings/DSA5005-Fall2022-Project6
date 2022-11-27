@@ -127,7 +127,7 @@ int main()
 
     cout << "Completely sorted elements: ~~~~~~~~~~" << endl;
     // display the completely sorted array 
-    int* sorted = shellSort(arr, n, n*n);
+    int* sorted = bubbleSort(arr, n, n*n);
     for (int i = 0; i < n; i++) {
         cout << sorted[i] << " ";
     }
