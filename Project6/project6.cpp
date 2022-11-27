@@ -143,8 +143,18 @@ int main()
         cout << bubResult[i] << " ";
     }
     cout << endl;
-
+    
     // find both the quality metrics for bubResult
+    int bubInversion = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (bubResult[j] < bubResult[i]) {
+                bubInversion++;
+            }
+        }
+    }
+    cout << "Number of inversions in bubResult: " << bubInversion;
+    cout << endl;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -160,6 +170,16 @@ int main()
     cout << endl;
 
     // find both the quality metrics for shellResult
+    int shellInversion = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (shellResult[j] < shellResult[i]) {
+                shellInversion++;
+            }
+        }
+    }
+    cout << "Number of inversions in shellResult: " << shellInversion;
+    cout << endl;
 
     return 0;
 }
