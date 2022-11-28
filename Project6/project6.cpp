@@ -113,15 +113,17 @@ int main()
 
     cout << "Randomly generated elements: ~~~~~~~~~~" << endl;
     // display the array A
-    int* A = new int(n);
+    int* A = (int*)malloc(sizeof(int)*n);
+    /*for (int i = 0; i < n; i++) {
+        A[i] = 0;
+    }*/
+    
     srand(s); // initialize the random number generator with seed s
     int range = u - l;
     unordered_set<int> set;
-    for (int i = 0; i < n; i++) {
-        //int random = l + (rand() % (range + 1));
+    while (set.size() < n) {
+        cout << set.size() << endl;
         set.insert(l + (rand() % (range + 1)));
-        //cout << random << " ";
-        //A[i] = l + (rand() % range);
     }
     // cout << endl;
     int index = 0;
@@ -130,17 +132,17 @@ int main()
         A[index] = iterSet;
         index++;
     }
-    for (int i = 0; i < n; i++) {
+    /*for (int i = 0; i < n; i++) {
         cout << A[i] << " ";
-    }
+    }*/
     cout << endl;
     // use one of the sorting algorithms with the third argument for D as n*n (for bubble sort) and store the fully sorted result 
     cout << "Completely sorted elements: ~~~~~~~~~~" << endl;
     // display the completely sorted array 
     int* sorted = bubbleSort(A, n, n*n);
-    for (int i = 0; i < n; i++) {
+    /*for (int i = 0; i < n; i++) {
         cout << sorted[i] << " ";
-    }
+    }*/
     cout << endl;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -150,9 +152,9 @@ int main()
     int* bubResult = bubbleSort(A, n, D);
     
     // display bubResult
-    for (int i = 0; i < n; i++) {
+    /*for (int i = 0; i < n; i++) {
         cout << bubResult[i] << " ";
-    }
+    }*/
     cout << endl;
     
     // find both the quality metrics for bubResult
@@ -170,7 +172,7 @@ int main()
     cout << endl;
 
     // find the Chebyshev distance
-    int* bubDistance = new int(n);
+    int* bubDistance = (int*)malloc(sizeof(int) * n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (sorted[j] == bubResult[i]) {
@@ -180,7 +182,7 @@ int main()
     }
 
     // find the max from the distance array
-    int max = INT_MIN;
+    int max = 0;
     for (int i = 0; i < n; i++) {
         if (bubDistance[i] > max) {
             max = bubDistance[i];
@@ -196,9 +198,9 @@ int main()
     int* shellResult = shellSort(A, n, D);
     
     // display shellResult
-    for (int i = 0; i < n; i++) {
+    /*for (int i = 0; i < n; i++) {
         cout << shellResult[i] << " ";
-    }
+    }*/
     cout << endl;
 
     // find both the quality metrics for shellResult
@@ -215,7 +217,7 @@ int main()
     cout << endl;
 
     // find the Chebyshev's distance
-    int* shellDistance = new int(n);
+    int* shellDistance = (int*)malloc(sizeof(int) * n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (sorted[j] == shellResult[i]) {
@@ -225,7 +227,7 @@ int main()
     }
 
     // find the max element from the distance array
-    max = INT_MIN;
+    max = 0;
     for (int i = 0; i < n; i++) {
         if (shellDistance[i] > max) {
             max = shellDistance[i];
@@ -234,5 +236,9 @@ int main()
 
     cout << "Chebyshev distance in shellResult: " << max << endl;
 
+    // deallocate memory for all the arrays
+    free(A);
+    free(bubDistance);
+    free(shellDistance);
     return 0;
 }
