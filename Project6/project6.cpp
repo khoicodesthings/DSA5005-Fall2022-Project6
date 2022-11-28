@@ -93,6 +93,12 @@ int* shellSort(int* arr, int numElements, int D)
     return arr;
 }
 
+int getMyRandomNumber()
+{
+    static int MY_RANGE_MAX = 200001;
+    return (1.0 * rand() / RAND_MAX) * MY_RANGE_MAX;
+}
+
 //main function
 int main()
 {
@@ -122,7 +128,7 @@ int main()
     int range = u - l;
     unordered_set<int> set;
     while (set.size() < n) {
-        cout << set.size() << endl;
+        // cout << set.size() << endl;
         set.insert(l + (rand() % (range + 1)));
     }
     // cout << endl;
@@ -132,17 +138,17 @@ int main()
         A[index] = iterSet;
         index++;
     }
-    /*for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cout << A[i] << " ";
-    }*/
+    }
     cout << endl;
     // use one of the sorting algorithms with the third argument for D as n*n (for bubble sort) and store the fully sorted result 
     cout << "Completely sorted elements: ~~~~~~~~~~" << endl;
     // display the completely sorted array 
     int* sorted = bubbleSort(A, n, n*n);
-    /*for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cout << sorted[i] << " ";
-    }*/
+    }
     cout << endl;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -152,9 +158,9 @@ int main()
     int* bubResult = bubbleSort(A, n, D);
     
     // display bubResult
-    /*for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cout << bubResult[i] << " ";
-    }*/
+    }
     cout << endl;
     
     // find both the quality metrics for bubResult
@@ -198,9 +204,9 @@ int main()
     int* shellResult = shellSort(A, n, D);
     
     // display shellResult
-    /*for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cout << shellResult[i] << " ";
-    }*/
+    }
     cout << endl;
 
     // find both the quality metrics for shellResult
