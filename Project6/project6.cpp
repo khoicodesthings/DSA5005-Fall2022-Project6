@@ -119,18 +119,18 @@ int main()
     unordered_set<int> set;
     for (int i = 0; i < n; i++) {
         //int random = l + (rand() % range);
-        set.insert(l + (rand() % (range+1)));
+        set.insert(l + (rand() % (range + 1)));
         //cout << random << " ";
         //A[i] = l + (rand() % range);
     }
     cout << endl;
-    // use one of the sorting algorithms with the third argument for D as n*n (for bubble sort) and store the fully sorted result 
     int index = 0;
     // convert set to array
     for (const auto& iterSet : set) {
         A[index] = iterSet;
         index++;
     }
+    // use one of the sorting algorithms with the third argument for D as n*n (for bubble sort) and store the fully sorted result 
     cout << "Completely sorted elements: ~~~~~~~~~~" << endl;
     // display the completely sorted array 
     int* sorted = bubbleSort(A, n, n*n);
@@ -176,7 +176,7 @@ int main()
     }
 
     // find the max from the distance array
-    int max = INT_MIN;
+    int max = l;
     for (int i = 0; i < n; i++) {
         if (bubDistance[i] > max) {
             max = bubDistance[i];
@@ -221,7 +221,7 @@ int main()
     }
 
     // find the max element from the distance array
-    max = INT_MIN;
+    max = l;
     for (int i = 0; i < n; i++) {
         if (shellDistance[i] > max) {
             max = shellDistance[i];
