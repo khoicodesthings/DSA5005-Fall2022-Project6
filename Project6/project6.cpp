@@ -96,11 +96,11 @@ int* shellSort(int* arr, int numElements, int D)
 //main function
 int main()
 {
-    int n; // 10
+    int n;
     cin >> n; // read the number of elements
     cout << "Number of elements: " << n << endl;
 
-    int s, l, u, D; // 11011, 1000, 1500, 10
+    int s, l, u, D;
 
     cin >> s >> l >> u >> D; // read the seed, lower range, upper range and the number of comparisons
     cout << "Number of comparisons allowed: " << D << endl;
@@ -118,9 +118,9 @@ int main()
     int range = u - l;
     unordered_set<int> set;
     for (int i = 0; i < n; i++) {
-        //int random = l + (rand() % range);
-        set.insert(l + (rand() % (range + 1)));
-        //cout << random << " ";
+        int random = l + (rand() % (range + 1));
+        set.insert(random);
+        cout << random << " ";
         //A[i] = l + (rand() % range);
     }
     cout << endl;
