@@ -118,17 +118,18 @@ int main()
     int range = u - l;
     unordered_set<int> set;
     for (int i = 0; i < n; i++) {
-        int random = l + (rand() % range);
-        set.insert(random);
-        cout << random << " ";
+        //int random = l + (rand() % range);
+        //set.insert(l + (rand() % range));
+        //cout << random << " ";
+        A[i] = l + (rand() % range);
     }
     cout << endl;
     // use one of the sorting algorithms with the third argument for D as n*n (for bubble sort) and store the fully sorted result 
     int index = 0;
-    for (const auto& iterSet : set) {
+    /*for (const auto& iterSet : set) {
         A[index] = iterSet;
         index++;
-    }
+    }*/
     cout << "Completely sorted elements: ~~~~~~~~~~" << endl;
     // display the completely sorted array 
     int* sorted = bubbleSort(A, n, n*n);
