@@ -120,9 +120,6 @@ int main()
     cout << "Randomly generated elements: ~~~~~~~~~~" << endl;
     // display the array A
     int* A = (int*)malloc(sizeof(int)*n);
-    /*for (int i = 0; i < n; i++) {
-        A[i] = 0;
-    }*/
     
     srand(s); // initialize the random number generator with seed s
     int range = u - l;
@@ -138,17 +135,17 @@ int main()
         A[index] = iterSet;
         index++;
     }
-    /*for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cout << A[i] << " ";
-    }*/
+    }
     cout << endl;
     // use one of the sorting algorithms with the third argument for D as n*n (for bubble sort) and store the fully sorted result 
     cout << "Completely sorted elements: ~~~~~~~~~~" << endl;
     // display the completely sorted array 
     int* sorted = bubbleSort(A, n, n*n);
-    /*for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cout << sorted[i] << " ";
-    }*/
+    }
     cout << endl;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -158,9 +155,9 @@ int main()
     int* bubResult = bubbleSort(A, n, D);
     
     // display bubResult
-    /*for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cout << bubResult[i] << " ";
-    }*/
+    }
     cout << endl;
     
     // find both the quality metrics for bubResult
@@ -204,9 +201,9 @@ int main()
     int* shellResult = shellSort(A, n, D);
     
     // display shellResult
-   /* for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cout << shellResult[i] << " ";
-    }*/
+    }
     cout << endl;
 
     // find both the quality metrics for shellResult
